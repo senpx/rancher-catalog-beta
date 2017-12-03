@@ -24,6 +24,4 @@ portworx:
      - /var/run/docker.sock:/var/run/docker.sock
      - /var/cores:/var/cores
      - /proc:/hostproc
-  command: latest_stable=$(curl -fsSL 'http://install.portworx.com?type=dock' | awk '/image: / {print $2}')
-  command: sudo docker run --entrypoint /runc-entry-point.sh --rm -i --privileged=true $latest_stable
-  command: sudo /opt/pwx/bin/px-runc install -c ${CLUSTER_ID} -k ${KVDB} ${USE_DISKS}
+  command: sudo docker run --entrypoint /runc-entry-point.sh --rm -i --privileged=true $latest_stable && sudo /opt/pwx/bin/px-runc install -c ${CLUSTER_ID} -k ${KVDB} ${USE_DISKS}
