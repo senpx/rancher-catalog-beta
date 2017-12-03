@@ -14,7 +14,6 @@ portworx:
     HDR_DIR: ${HEADER_DIR}
     USE_DISKS: ${USE_DISKS}
     ENABLE_ATTR_CACHE: true
-    latest_stable: 1.2.11.6
   volumes:
      - /dev:/dev
      - ${HEADER_DIR}:${HEADER_DIR}
@@ -25,4 +24,4 @@ portworx:
      - /var/run/docker.sock:/var/run/docker.sock
      - /var/cores:/var/cores
      - /proc:/hostproc
-  command: sudo docker run --entrypoint /runc-entry-point.sh --rm -i --privileged=true $latest_stable && sudo /opt/pwx/bin/px-runc install -c ${CLUSTER_ID} -k ${KVDB} ${USE_DISKS}
+  command: sudo docker run --rm --entrypoint /runc-entry-point.sh && sudo /opt/pwx/bin/px-runc install -c ${CLUSTER_ID} -k ${KVDB} ${USE_DISKS}
