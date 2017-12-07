@@ -24,5 +24,4 @@ portworx:
      - /var/run/docker.sock:/var/run/docker.sock
      - /var/cores:/var/cores
      - /proc:/hostproc
-  command: sudo docker run --rm --entrypoint /runc-entry-point.sh && sudo /opt/pwx/bin/px-runc install -c ${CLUSTER_ID} -k ${KVDB} ${USE_DISKS}
-
+  command: sudo docker run --rm --entrypoint /runc-entry-point.sh && sudo /opt/pwx/bin/px-runc install -c ${CLUSTER_ID} -k ${KVDB} ${USE_DISKS} -b
