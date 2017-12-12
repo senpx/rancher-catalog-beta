@@ -1,7 +1,7 @@
 portworx:
   labels:
     io.rancher.container.dns: 'true'
-    io.rancher.scheduler.global: 'true'
+    io.rancher.scheduler.global: 'false'
     io.rancher.container.hostname_override: container_name
     io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
     io.rancher.scheduler.affinity:host_label: io.rancher.stack_service.name=$${USER_SCHEDULE_KEY}/$${USER_SCHEDULE_VALUE}
