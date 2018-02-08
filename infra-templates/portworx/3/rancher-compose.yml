@@ -1,0 +1,26 @@
+.catalog:
+  name: "Portworx"
+  version: "1.2.16"
+  description: "Portworx Docker Volume Plugin"
+  questions:
+
+    - variable: "VOLUME_DRIVER_NAME"
+      description: "Name to use for this plugin instance with Docker:  docker volume create -d <volume driver name>"
+      label: "Volume Driver Name"
+      required: true
+      default: "pxd"
+      type: "string"
+
+portworx:
+  metadata:
+    version: 1
+    storageDriverName: "${VOLUME_DRIVE_NAME}"
+    debug: true
+    volumeDriverName: "${VOLUME_DRIVER_NAME}"
+  storage_driver:
+    name: "${VOLUME_DRIVER_NAME}"
+    scope: environment
+    volume_access_mode: multiHostRW
+    blockDevicePath: null
+  scale: 3
+  start_on_create: true
